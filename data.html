@@ -1,0 +1,23 @@
+   {% for tweet in tweets %}
+                                                    <div id="tweetautoload">
+                                                        <div class="card {% if tweet.data.polarity > 0 %} positive {% endif %} {% if tweet.data.polarity < 0 %} negative {% endif %} {% if tweet.data.polarity == 0 %} neutral {% endif %}"
+                                                            style="border-radius: 10px; background-color: #00000024;">
+                                                            <div style="padding: 20px;" class="card-body">
+                                                                <p style="font-size: 13.5px;" class="card-text">
+                                                                    {{ tweet.filtered_text|safe}}
+                                                                </p>
+                                                                <br />
+                                                                <div style="font-size: 12px;" class="card-text">
+                                                                    <img style="border-radius: 50%"
+                                                                        alt="{{ tweet.data.username }}" height="48"
+                                                                        src="{{ tweet.data.profile_image_url }}"
+                                                                        width="48" class="mr-3" />
+                                                                    {{ tweet.data.name }} (<a
+                                                                        href="{{ tweet.user_link }}" target="_blank">
+                                                                        {{ tweet.data.username }}</a>)
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    {% endfor %}
