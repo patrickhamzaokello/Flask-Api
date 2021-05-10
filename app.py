@@ -16,6 +16,11 @@ tweets = store.tweets()
 
 app = Flask(__name__)
 
+@app.route("/")
+def index():
+    return "<div>You Landed Well, Click <a href='tweet'>kasfa api</a></div>"
+
+
 @app.route('/tweet',methods=['GET', ])
 def index():
   try:
