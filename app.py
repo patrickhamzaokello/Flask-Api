@@ -18,11 +18,12 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return "<div>You Landed Well, Click <a href='tweet'>kasfa api</a></div>"
+    return "<div style='display:grid; place-content:center'><div style='background: #f7f7f7;padding: 1em 2em;color: black;margin: 0 auto;width: 300px;'>You Landed Well, Click <a href='tweet'>kasfa api</a></div></div>"
+    # return "welcome"
 
 
 @app.route('/tweet',methods=['GET', ])
-def index():
+def tweet():
   try:
     data =[tweet.data for tweet in tweets]
     return Response(response=json.dumps(data),mimetype="application/json")
